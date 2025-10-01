@@ -28,5 +28,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-southeast-2
 
+      - name: Login to Amazon ECR   # ✅ ye step add karo
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
       - name: Push Docker images
-        run: docker compose push    # ✅ no hyphen
+        run: docker compose push
